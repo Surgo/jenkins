@@ -324,6 +324,12 @@ public final class WebAppMain implements ServletContextListener {
             return new FileAndDescription(legacyHome,"$user.home/.hudson"); // before rename, this is where it was stored
         }
 
+        // For dotcloud
+        File dotcloudHome = new File("/home/dotcloud");
+        if (dotcloudHome.exists()) {
+            return new FileAndDescription(new File(dotcloudHome,"jetty"),"DotCloud");
+        }
+
         File newHome = new File(new File(System.getProperty("user.home")),".jenkins");
         return new FileAndDescription(newHome,"$user.home/.jenkins");
     }
