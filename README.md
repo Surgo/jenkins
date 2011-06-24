@@ -27,3 +27,37 @@ All about Jenkins CI can be found on our [website]. Follow us on Twitter @[jenki
 [website]: http://jenkins-ci.org
 [jenkinsci]: http://twitter.com/jenkinsci
 
+Deploy to DotCloud
+==================
+
+> DotCloud lets you create the best cloud stack for your application. -- by [DotCloud]
+
+1. Create application
+
+        $ dotcloud create <dotjenkins>
+
+2. Create project directory and put jenkins.war
+
+        $ mkdir <dotjenkins>
+        $ git clone git://github.com/Surgo/jenkins.git /path/to/yourworkingdir
+        $ cp /path/to/yourworkingdir/jenkins/war/target/jenkins.war .
+
+   Or DotCloud (jetty) will make your application available online at the root directory if your archive is named ROOT.war
+
+        $ cp /path/to/yourworkingdir/jenkins/war/target/jenkins.war ./ROOT.war
+
+3. Create jenkins home directory
+
+        $ dotcloud run <dotjenkins> -- mkdir jetty
+        $ dotcloud run <dotjenkins> -- chmod -R a+wx ./jetty
+
+4. Modify dotcloud.yml
+
+        www:
+          type: java
+
+5. Deploy to dotcloud
+
+        $ dotcloud push <dotjenkins> ./<dotjenkins>
+
+[DotCloud]: http://www.dotcloud.com/
