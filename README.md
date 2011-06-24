@@ -42,7 +42,7 @@ Deploy to DotCloud
         $ git clone git://github.com/Surgo/jenkins.git /path/to/yourworkingdir
         $ cp /path/to/yourworkingdir/jenkins/war/target/jenkins.war .
 
-   Or DotCloud (jetty) will make your application available online at the root directory if your archive is named ROOT.war
+    Or DotCloud (jetty) will make your application available online at the root directory if your archive is named ROOT.war
 
         $ cp /path/to/yourworkingdir/jenkins/war/target/jenkins.war ./ROOT.war
 
